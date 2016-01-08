@@ -515,18 +515,15 @@
 
                 The attachements MUST contain a human-readable version of all the crucial data
                 contained within the reports. This also includes all the data which may help to
-                prove the identity of the student (such as birth date). You MAY include all
-                this data in a single file, or you MAY split it into several ones (e.g. one PDF
-                per report) - we're leaving this decision to individual NCP implementers.
+                prove the identity of the student (such as birth date).
 
-                The attachments SHOULD be in PDF format. All other types of attachments MAY
-                be ignored by the EMREX Clients.
+                Is it STRONGLY RECOMMENDED that you include all this data in a single PDF file
+                of the "EMREX transcript" type present *outside* the report elements. There
+                SHOULD be exactly one attachment of this type. Please note that this will be
+                REQUIRED in the next major version of the schema.
 
-                If you wonder why attachements are required, then you should remember, that
-                some EMREX Clients MAY ignore all learningOpportunitySpecification elements
-                (even if they are 100% valid) and simply choose to forward the attached
-                transcript of records to a staff member for manual processing (this is also a
-                valid EMREX use case and all NCPs need to support it).
+                All attachments SHOULD be in PDF format. All other types of attachments MAY
+                be ignored by EMREX Clients.
 
                 Try to order your attachments by importance (we'll leave it for the implementer
                 to decide which attachments are more important).
@@ -534,14 +531,6 @@
                 Also, try to keep them lightweight - some EMREX Clients will need to store your
                 NCP responses for some time. Take their storage space into account when you
                 think about embedding logos or fonts inside your PDFs!
-
-                Notes for EMREX Client implementers:
-
-                You will probably need these attachments in case when something goes wrong, and
-                you want this response to be imported or verified manually.
-
-                You MAY also use the attachment to view a human-readable "preview" of the ELMO
-                data for the student.
             </xs:documentation>
         </xs:annotation>
         <xs:sequence>
@@ -578,6 +567,26 @@
                                     In comparison, "Transcript of Records" is meant to be issued (and possibly
                                     signed) by a single institution, and should be located inside the `report`
                                     element.
+
+                                    The "EMREX transcript" attachement MUST contain a human-readable version of all
+                                    the crucial data contained within the entire ELMO file. This also includes all
+                                    the data which may help to prove the identity of the student (such as birth
+                                    date). Is is STRONGLY RECOMMENDED that every ELMO file has exactly one attachment
+                                    of this type.
+
+                                    If you wonder why this attachement is required, then you should remember, that
+                                    some EMREX Clients MAY *ignore* all learningOpportunitySpecification elements
+                                    (even if they are 100% valid) and simply choose to forward the attached
+                                    transcript of records to a staff member for manual processing (this is also a
+                                    valid EMREX use case and all NCPs need to support it).
+
+                                    Notes for EMREX Client implementers:
+
+                                    You will probably need this attachment in case when something goes wrong, and
+                                    you want this response to be verified manually.
+
+                                    You MAY also use this attachment to view a human-readable "preview" of the ELMO
+                                    data for the student.
                                 </xs:documentation>
                             </xs:annotation>
                         </xs:enumeration>
